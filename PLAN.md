@@ -103,6 +103,28 @@ What you can do depends on **which model** you own:
 - **Original Google Home (2016), Nest Audio:** no drop-in board known. Stay on Route A, or gut the
   shell and fit an ESP32-S3 board plus amplifier yourself (custom project).
 
+## Route C: skip the Google Homes and build your own (recommended)
+
+You said you aren't attached to the Google Homes. If so, this route does the most and has the fewest
+workarounds: open hardware all the way, with no Google code anywhere. The server side is the same as
+the diagram above. Only the speakers change.
+
+Per room, pick one:
+
+| Build | Parts | Music quality | Effort |
+|---|---|---|---|
+| **Satellite1 (recommended)** | FutureProofHomes Satellite1 dev kit (ESP32-S3 + XMOS audio chip, about $70) + its amp board + a pair of small passive bookshelf speakers + a 3D-printed or bought enclosure | Good. It drives real speakers. Synced multi-room through Snapcast + Music Assistant is in beta | A weekend per unit: assembly, flashing, enclosure |
+| **Voice PE + powered speaker** | HA Voice Preview Edition (about $60), plugged by 3.5 mm into any powered speaker | Depends on the speaker | Plug in and go |
+
+- Both run ESPHome, support microWakeWord (so "Hey Ultron" works), and show up as Music Assistant
+  players. That covers Spotify and moving music between rooms.
+- The Voice PE's own speaker is meant for voice replies, not music. Pair it with an external speaker.
+- Moving music between rooms works the same way: Music Assistant's queue transfer, or a synced group.
+
+Timeline is about the same as Route A: **first room working within a weekend of the parts arriving,
+about 2 weeks to the Ultron voice and polish.** Building a second unit takes a few hours once you've
+built the first.
+
 ## Shopping list for Route A
 
 - A server: Raspberry Pi 5 with 8 GB and an SSD, or an Intel N100 mini PC (about $150 to $200)
@@ -129,4 +151,7 @@ What you can do depends on **which model** you own:
 - [Music Assistant 2.4: Spotify Connect](https://alternativeto.net/news/2025/3/music-assistant-2-4-brings-assist-devices-enhancements-spotify-connect-and-podcast-support/)
 - [Onju Voice](https://github.com/justLV/onju-voice) · [onju-voice-esphome](https://github.com/Idskov/onju-voice-esphome)
 - [iMike78 nest-mini-drop-in-pcb](https://github.com/iMike78/nest-mini-drop-in-pcb)
+- [Voice satellite comparison: Voice PE vs Satellite1 vs reSpeaker](https://community.home-assistant.io/t/voice-satellite-comparison-ha-voice-pe-vs-futureproofhomes-satellite1-vs-seeed-respeaker-xvf3800/1026509)
+- [Satellite1 Dev Kit (CNX Software)](https://www.cnx-software.com/2025/05/16/satellite1-dev-kit-is-an-home-assistant-compatible-diy-voice-assistant-with-esp32-s3-module-xmos-xu316-audio-processor/)
+- [Multi-room audio on Satellite1](https://community.home-assistant.io/t/multi-room-audio-on-satellite1-ha-voice-assistant/912272)
 - [MiciMike Google Home Mini PCB (CNX Software, Apr 2026)](https://www.cnx-software.com/2026/04/29/micimike-open-source-drop-in-pcb-converts-google-home-mini-into-a-local-voice-assistant/)
